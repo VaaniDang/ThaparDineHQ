@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Your existing styles */
+
+        .book {
+            background-color: #fff;
+            width: 500px;
+            height: 300px;
+            border-radius: 20px;
+            perspective: 600px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cover {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: #ee5f2a;
+            border-radius: 20px;
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+            transition: transform 0.7s;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+        .left-page, .right-page {
+            background-color: rgb(0, 153, 255);
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            display: none;
+            transform-origin: left;
+            transform: rotateY(-90deg);
+            border-radius: 5px;
+            /*border: 1px solid black;*/
+        }
+        .left-page {
+            border-right: 1px solid black;
+        }
+
+
+        .right-page {
+            left: 50%;
+            transform-origin: right;
+            transform: rotateY(90deg);
+            border-left: 1px solid black;
+        }
+
+        .flipped .cover {
+            transform: rotateY(180deg);
+        }
+
+        .flipped .left-page {
+            display: block;
+            transform: rotateY(0deg);
+        }
+
+        .flipped .right-page {
+            display: block;
+            transform: rotateY(0deg);
+        }
+    </style>
+</head>
+<body style="background-color: rgb(196, 229, 240);">
+    <section>
+        <div class="book" id="menuBook">
+            <div class="cover">Menu</div>
+            <div class="left-page">
+                <div class="menu-items" id="leftMenuItems">
+                    <!-- Left page content (first page) -->
+                </div>
+            </div>
+            <div class="right-page">
+                <div class="menu-items" id="rightMenuItems">
+                    <!-- Right page content (second page) -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simulating fetched data
+            const menuItemsData = [
+                { itemName: 'Item 1', quantity: 2, price: '$10' },
+                { itemName: 'Item 2', quantity: 1, price: '$15' },
+                { itemName: 'Item 3', quantity: 3, price: '$20' }
+            ];
+
+            const leftMenuItems = document.getElementById('leftMenuItems');
+            const rightMenuItems = document.getElementById('rightMenuItems');
+            const menuBook = document.getElementById('menuBook');
+            let isMenuOpen = false;
+
+            menuBook.addEventListener('click', function() {
+                if (!isMenuOpen) {
+                    // Populate menu items on left and right pages when the book is clicked
+                    leftMenuItems.innerHTML = menuItemsData.slice(0, Math.ceil(menuItemsData.length / 2)).map(menuItem => {
+                        return `<div class="menu-item">
+                                    <h2>${menuItem.itemName}</h2>
+                                    <p>Qty: ${menuItem.quantity} | Price: ${menuItem.price}</p>
+                                </div>`;
+                    }).join('');
+
+                    rightMenuItems.innerHTML = menuItemsData.slice(Math.ceil(menuItemsData.length / 2)).map(menuItem => {
+                        return `<div class="menu-item">
+                                    <h2>${menuItem.itemName}</h2>
+                                    <p>Qty: ${menuItem.quantity} | Price: ${menuItem.price}</p>
+                                </div>`;
+                    }).join('');
+
+                    menuBook.classList.add('flipped');
+                    isMenuOpen = true;
+                } else {
+                    // Close the book and hide the content when clicked again
+                    leftMenuItems.innerHTML = '';
+                    rightMenuItems.innerHTML = '';
+                    menuBook.classList.remove('flipped');
+                    isMenuOpen = false;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
