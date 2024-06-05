@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body style="background-color: rgb(196, 229, 240);">
+<div class="banner">
+    <video autoplay loop muted plays-inline>
+        <source src="shops.mp4" type="video/mp4">
+    </video>
+    <div class="navbar">
+        <img class="logo" src="../photos/logo2.png">
+        <ul>
+            <li><a href="Main.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="support.html">Support</a></li>
+        </ul>
+    </div>
+
+    <div style="display: grid;">
+        <div id="menu">
+            
+        </div>
+
+        <main id="shopInfo">
+            
+        </main>
+        <div id="RevInfo"></div>
+        </main>
+
+        <form id="revForm">
+            <button id="addReviewBtn" type="button">Add a review of your own</button>
+        </form>
+
+    </div>
+</div>
+<div id="overlay"></div>
+<div class="popup" id="reviewPopup">
+    <div class="popup-content">
+        <form id="reviewForm">
+            <textarea id="userReview" placeholder="Add your review here..."></textarea>
+            <button id="submitReviewBtn" type="button">Submit Review</button>
+        </form>
+    </div>
+</div>
+
+
+<script src="shop.js"></script>
+<script src="eatery.js"></script>
+
+</body>
+</html>

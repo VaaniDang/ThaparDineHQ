@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+    <body id="ab" style="text-align: center;">
+     <div id="banner3">
+            <div class="navbar">
+                <img class="logo" src="../photos/logo2.png">
+                <ul>
+                    <li><a href="Main.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="support.html">Support</a></li>
+                </ul>
+            </div>
+            
+            <div id="faq">
+                <h2 style="margin-bottom: 40px; font-size: 2.5rem;">FAQ's</h2>
+
+                <button class="accordion">What is this website and what does it do?</button>
+                <div class="panel">
+                    <p>This website is a comprehensive guide to the culinary scene around campus. 
+                        It provides up-to-date menus from all the eateries on campus, making it easy 
+                        for students to find what they're craving without having to look around or go in person.</p>
+                </div>
+            
+                <button class="accordion">How does this website work?</button>
+                <div class="panel">
+                    <p>The website is very user-friendly. Simply browse the campus map
+                        or search for your favourite eating joint.</p>
+                </div>
+            
+                <button class="accordion">How often are the menus updated?</button>
+                <div class="panel">
+                    <p>We strive to keep our menus as up-to-date as possible. We typically update menus once a month, 
+                        but we may update them more frequently if there are any significant changes.</p>
+                </div>
+
+                <button class="accordion">How can I find the menu for a specific eatery?</button>
+                <div class="panel">
+                    <p>There are two ways to find the menu for a specific eatery. You can browse the campus map by eatery or use the search bar.</p>
+                </div>
+
+                <button class="accordion">Are the prices on the menus accurate?</button>
+                <div class="panel">
+                    <p>We make every effort to ensure that the prices on the menus are accurate. However, we cannot guarantee that they are always up-to-date. Please be advised that prices may vary.</p>
+                </div>
+
+                <button class="accordion">What if I can't find the menu for an eatery?</button>
+                <div class="panel">
+                    <p>If you can't find the menu for an eatery, please let us know below. We will try our best to add it to the website as soon as possible.</p>
+                </div>
+                
+                <button id="feed" onclick="window.location.href='https://forms.gle/TYKg763XinxhcjwU6';">
+                    Send us your Feedback!
+                  </button>
+
+                  <button id="feed" onclick="window.location.href='https://tiet360.in/';">
+                    Campus Virtual Tour
+                  </button>
+            
+            </div>
+     </div>
+    </body> 
+     <script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
+}
+     </script>
+        
+        
+     
+    <script src="eatery.js"></script>
+    <script src="shop.js"></script>
+
+    </body>
+</html>
